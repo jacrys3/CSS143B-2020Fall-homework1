@@ -35,11 +35,13 @@ public class Problem2Test {
         assertEquals(inputs.length, answers.length);
         for (int i = 0; i < inputs.length; i++) {
             Problem2.bubbleSort(inputs[i]);
-            try {
-                assertEquals(inputs[i], answers[i]);
-            } catch(AssertionError e) {
-                System.out.println("");
-                System.out.println("**Test case " + i + " failed: " + e);
+            for(int k = 0; k < inputs[i].length; k++) {
+                try {
+                    assertEquals(inputs[i][k], answers[i][k]);
+                } catch (AssertionError e) {
+                    System.out.println("");
+                    System.out.println("**Test case " + i + " failed: " + e);
+                }
             }
         }
     }
