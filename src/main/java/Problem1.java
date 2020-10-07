@@ -30,22 +30,19 @@ public class Problem1 {
 
         int l = 0;
         int r = data.length - 1;
-        int mid = (l + r) / 2;
+        int mid;
 
-        while(mid > 1){
-            if(data.length == 0){
-                return -1;
-            }
-            else if (data[mid] == target){
-                return mid;
+        while(l <= r){
+            mid = (l + r) / 2;
+
+            if (data[mid] < target){
+                l = mid + 1;
             }
             else if (data[mid] > target){
-                l = mid;
-                mid = (l + r) / 2;
+                r = mid - 1;
             }
-            else if (data[mid] < target){
-                r = mid;
-                mid = (l + r) / 2;
+            else{
+                return mid;
             }
         }
         return -1;
