@@ -5,12 +5,19 @@ public class Problem2 {
         // Arrays will be sorted low to high
         int first;
         int second;
+
         if(data.length > 1) {
             for (int k = 0; k < data.length - 1; k++) {
-                for (int i = 0; i < data.length - 1; i++) {
-                    first = data[i];
-                    second = data[i + 1];
+                for (int i = 0; i <= data.length - 1; i++) {
 
+                    if(i == data.length - 1){
+                        first = data[i - 1];
+                        second = data[i];
+                    }
+                    else{
+                        first = data[i];
+                        second = data[i + 1];
+                    }
                     if (first > second) {
                         data[i] = second;
                         data[i + 1] = first;
@@ -20,9 +27,5 @@ public class Problem2 {
                 System.out.println(" ");
             }
         }
-
-
-        //System.out.println(data[data.length - 1]);
-
     }
 }
