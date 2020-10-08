@@ -16,9 +16,9 @@ public class Problem2Test {
                 {1, 1, 1},
                 {4, 4, 2, 1, 2},
                 {5, 4, 3, 2, 1},
-                {-1,3,-5},
+                {-1, 3, -5},
                 {-2},
-                {-3,-2,-1,0}
+                {-3, -2, -1, 0}
         };
         int answers[][] = {
                 {1, 2, 3, 4, 5},
@@ -28,20 +28,18 @@ public class Problem2Test {
                 {1, 1, 1},
                 {1, 2, 2, 4, 4},
                 {1, 2, 3, 4, 5},
-                {-5,-1,3},
+                {-5, -1, 3},
                 {-2},
-                {-3,-2,-1,0}
+                {-3, -2, -1, 0}
         };
         assertEquals(inputs.length, answers.length);
         for (int i = 0; i < inputs.length; i++) {
             Problem2.bubbleSort(inputs[i]);
-            for(int k = 0; k < inputs[i].length; k++) {
-                try {
-                    assertEquals(inputs[i][k], answers[i][k]);
-                } catch (AssertionError e) {
-                    System.out.println("");
-                    System.out.println("**Test case " + i + " failed: " + e);
-                }
+            try {
+                assertArrayEquals(inputs[i], answers[i]);
+            } catch (AssertionError e) {
+                System.out.println("");
+                System.out.println("**Test case " + i + " failed: " + e);
             }
         }
     }
