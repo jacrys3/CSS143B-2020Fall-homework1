@@ -29,7 +29,13 @@ public class Problem1Test {
         for (int i=0; i<inputs.length; i++) {
             int actual = Problem1.binarySearch(inputs[i], targets[i]);
             int expected = answer[i];
-            assertEquals(expected, actual);
+
+            try {
+                assertEquals(expected, actual);
+            } catch (AssertionError e) {
+                System.out.println("");
+                System.out.println("**Test case " + i + " failed: " + e);
+            }
         }
     }
 }
