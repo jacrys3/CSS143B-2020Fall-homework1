@@ -5,21 +5,23 @@ public class Problem1 {
     public static int binarySearch(int[] data, int target) {
         // Add your solution
 
-        int l = 0;
-        int r = data.length - 1;
-        int mid;
+        //Help from DZone.com
+
+        int l = 0; // leftmost number
+        int r = data.length - 1; // rightmost number
+        int mid; // middle number
 
         while(l <= r){
-            mid = (l + r) / 2;
+            mid = (l + r) / 2; // middle gets set
 
-            if (data[mid] < target){
+            if (data[mid] < target){ // if number is in upper half
                 l = mid + 1;
             }
-            else if (data[mid] > target){
+            else if (data[mid] > target){ // if number is in lower half
                 r = mid - 1;
             }
             else{
-                return mid;
+                return mid; // if the target number is mid
             }
         }
         return -1;
